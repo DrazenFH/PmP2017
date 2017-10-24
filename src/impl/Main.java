@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) throws StreamCorruptedException {
 
         //Path for the txt-File
-        String path = "C:\\Users\\dl_asus\\IdeaProjects\\PmP2017\\PmP2017\\src\\aliceInWonderland.txt";
+        String path = "C:\\Users\\dl_asus\\IdeaProjects\\PmP2017\\src\\aliceInWonderland.txt";
         Input input = null;
 
 
@@ -25,6 +25,8 @@ public class Main {
             SimplePipe simplePipe2 = new SimplePipe((pmp.interfaces.Readable) wordSeperator);
 
             CircularShift circularShift = new CircularShift(simplePipe2);
+
+            SimplePipe simplePipe3 = new SimplePipe((pmp.interfaces.Readable) circularShift);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

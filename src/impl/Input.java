@@ -46,26 +46,4 @@ public class Input extends Source<String> {
 
     }
 
-    public static void main(String[] args) {
-
-
-        String path = "C:\\Users\\dl_asus\\IdeaProjects\\PmP2017\\PmP2017\\src\\aliceInWonderland.txt";
-
-        try {
-            Input input = new Input(path);
-            String output;
-            try {
-
-                while((output = input.read())!=null) {
-                    System.out.println(output.toString());
-                }
-
-            } catch (StreamCorruptedException e) {
-                e.printStackTrace();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
 }
