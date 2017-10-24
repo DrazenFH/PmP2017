@@ -9,6 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws StreamCorruptedException {
 
+        //Path for the txt-File
         String path = "C:\\Users\\dl_asus\\IdeaProjects\\PmP2017\\PmP2017\\src\\aliceInWonderland.txt";
         Input input = null;
 
