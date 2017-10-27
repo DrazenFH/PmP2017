@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="484.0" y="160.0">ImplementationA.CircularShiftFilter</node>
+    <node x="321.4886363636364" y="80.0">pmp.filter.DataTransformationFilter2</node>
+    <node x="0.0" y="80.0">pmp.filter.Source</node>
+    <node x="287.625" y="280.0">ImplementationA.PipesAndFilterA</node>
+    <node x="231.00000000000003" y="160.0">ImplementationA.WordSplitter</node>
+    <node x="367.0" y="160.0">ImplementationA.SortFilter</node>
+    <node x="4.0" y="160.0">ImplementationA.Input</node>
+    <node x="355.4886363636364" y="0.0">pmp.filter.AbstractFilter</node>
+    <node x="653.0" y="80.0">pmp.filter.Sink</node>
+    <node x="102.0" y="160.0">pmp.pipes.SimplePipe</node>
+    <node x="645.0" y="160.0">ImplementationA.Output</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ImplementationA.Input" target="pmp.filter.Source">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationA.CircularShiftFilter" target="pmp.filter.DataTransformationFilter2">
+      <point x="0.0" y="-15.0" />
+      <point x="554.5" y="135.0" />
+      <point x="478.155303030303" y="135.0" />
+      <point x="62.66666666666663" y="15.0" />
+    </edge>
+    <edge source="ImplementationA.WordSplitter" target="pmp.filter.DataTransformationFilter2">
+      <point x="0.0" y="-15.0" />
+      <point x="289.0" y="135.0" />
+      <point x="352.8219696969697" y="135.0" />
+      <point x="-62.666666666666686" y="15.0" />
+    </edge>
+    <edge source="ImplementationA.SortFilter" target="pmp.filter.DataTransformationFilter2">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationA.Output" target="pmp.filter.Sink">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="pmp.filter.DataTransformationFilter2" target="pmp.filter.AbstractFilter">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="366.5" y="155.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

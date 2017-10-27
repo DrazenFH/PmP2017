@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="192.0" y="80.0">pmp.filter.DataTransformationFilter2</node>
+    <node x="400.0" y="80.0">pmp.filter.DataTransformationFilter1</node>
+    <node x="37.5" y="80.0">pmp.filter.Source</node>
+    <node x="844.0" y="160.0">ImplementationB.LineToFileOutput</node>
+    <node x="181.0" y="160.0">ImplementationB.WordBuilder</node>
+    <node x="344.80448717948724" y="0.0">pmp.filter.AbstractFilter</node>
+    <node x="879.0" y="80.0">pmp.filter.Sink</node>
+    <node x="585.0" y="160.0">ImplementationB.LineBuilder</node>
+    <node x="715.0" y="160.0">pmp.pipes.SimplePipe</node>
+    <node x="608.0" y="80.0">ImplementationB.LineAlignment</node>
+    <node x="600.25" y="270.0">ImplementationB.PipesAndFilterB</node>
+    <node x="0.0" y="160.0">ImplementationB.FileToCharacterInput</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ImplementationB.FileToCharacterInput" target="pmp.filter.Source">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.LineToFileOutput" target="pmp.filter.Sink">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="ImplementationB.LineAlignment">
+      <point x="12.090909090909093" y="-15.0" />
+      <point x="678.8409090909091" y="210.0" />
+      <point x="704.5" y="210.0" />
+      <point x="704.5" y="135.0" />
+      <point x="714.6666666666666" y="135.0" />
+      <point x="42.66666666666663" y="15.0" />
+    </edge>
+    <edge source="pmp.filter.DataTransformationFilter1" target="pmp.filter.AbstractFilter">
+      <point x="0.0" y="-15.0" />
+      <point x="494.0" y="55.0" />
+      <point x="434.80448717948724" y="55.0" />
+      <point x="30.0" y="15.0" />
+    </edge>
+    <edge source="pmp.filter.DataTransformationFilter2" target="pmp.filter.AbstractFilter">
+      <point x="0.0" y="-15.0" />
+      <point x="286.0" y="55.0" />
+      <point x="374.80448717948724" y="55.0" />
+      <point x="-30.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="ImplementationB.LineBuilder">
+      <point x="-12.090909090909093" y="-15.0" />
+      <point x="654.6590909090909" y="210.0" />
+      <point x="612.25" y="210.0" />
+      <point x="-27.25" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.WordBuilder" target="pmp.filter.DataTransformationFilter2">
+      <point x="0.0" y="-15.0" />
+      <point x="-47.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="ImplementationB.FileToCharacterInput">
+      <point x="-60.45454545454547" y="-15.0" />
+      <point x="606.2954545454545" y="250.0" />
+      <point x="40.25" y="250.0" />
+      <point x="-40.25" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="pmp.pipes.SimplePipe">
+      <point x="24.181818181818187" y="-15.0" />
+      <point x="690.9318181818182" y="220.0" />
+      <point x="742.25" y="220.0" />
+      <point x="-27.25" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.LineBuilder" target="pmp.filter.DataTransformationFilter2">
+      <point x="-36.33333333333334" y="-15.0" />
+      <point x="603.1666666666666" y="135.0" />
+      <point x="333.0" y="135.0" />
+      <point x="47.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.LineBuilder" target="ImplementationB.LineAlignment">
+      <point x="36.33333333333334" y="-15.0" />
+      <point x="675.8333333333334" y="135.0" />
+      <point x="672.0" y="135.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="ImplementationB.LineToFileOutput">
+      <point x="60.45454545454547" y="-15.0" />
+      <point x="727.2045454545455" y="250.0" />
+      <point x="950.5" y="250.0" />
+      <point x="35.5" y="15.0" />
+    </edge>
+    <edge source="ImplementationB.PipesAndFilterB" target="ImplementationB.WordBuilder">
+      <point x="-24.181818181818187" y="-15.0" />
+      <point x="642.5681818181818" y="220.0" />
+      <point x="268.0" y="220.0" />
+      <point x="29.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="445.0" y="116.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
