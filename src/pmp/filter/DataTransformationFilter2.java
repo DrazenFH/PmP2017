@@ -8,13 +8,13 @@ import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
 
 /**
-* same as DataTransformationFilter1, but with the possibility to output a new object of the same or another type
-* as that of the incoming object
-* 
-* hook method: process(T):S which creates an S from a T
-* 
-* contract: a null entity signals end of stream
-*/
+ * same as DataTransformationFilter1, but with the possibility to output a new object of the same or another type
+ * as that of the incoming object
+ *
+ * hook method: process(T):S which creates an S from a T
+ *
+ * contract: a null entity signals end of stream
+ */
 
 public abstract class DataTransformationFilter2<T,S> extends AbstractFilter<T,S> {
 
@@ -36,29 +36,29 @@ public abstract class DataTransformationFilter2<T,S> extends AbstractFilter<T,S>
     public S read() throws StreamCorruptedException {
         T entity = readInput();
         S result = null;
-        if (entity != null) 
-        	result = process(entity);
+        if (entity != null)
+            result = process(entity);
         if (result == ENDING_SIGNAL)
-        	beforeSendingEndingSignal();
+            beforeSendingEndingSignal();
 
         return result;
     }
 
     public void write(T value) throws StreamCorruptedException {
         S result = null;
-        if (value != null) 
-        	result = process(value);
+        if (value != null)
+            result = process(value);
         if (result == ENDING_SIGNAL)
-        	beforeSendingEndingSignal();
-       writeOutput(result);
+            beforeSendingEndingSignal();
+        writeOutput(result);
     }
-    
+
     /**
      * does the transformation on entity
      * @param entity
      */
     protected abstract S process(T entity);
 
-    
+
 
 }

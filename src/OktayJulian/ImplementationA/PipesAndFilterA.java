@@ -7,33 +7,32 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class PipesAndFilterA {
-    //private static final String INPUT_PATH = "Files/aliceInWonderland.txt";
-   // private static final String OUTPUT_PATH = "Files/output.txt";
-    //private static final String WORD_INPUT_PATH = "Files/frequentEnglishWords.txt";
-    //private int NUMBER_OF_WORDS=80;
-
+    private static final String INPUT_PATH = "src\\aliceInWonderland.txt";
+    private static final String OUTPUT_PATH = "src\\output.txt";
+    private static final String WORD_INPUT_PATH = "src\\frequentEnglishWords.txt";
+    private int NUMBER_OF_WORDS = 80;
 
     public static void main(String[] args) {
         Input input = null;
         try {
-            input = new Input(args[0]);
+            input = new Input(INPUT_PATH);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         int NUMBER_OF_WORDS=100;
-        if(args[3]!=null){
-            NUMBER_OF_WORDS=Integer.parseInt(args[3]);
-        }
+//        if(args[3]!=null){
+//            NUMBER_OF_WORDS=Integer.parseInt(args[3]);
+//        }
 
         SimplePipe<String> pipe1 = new SimplePipe<>(input);
         WordSplitter splitter= new WordSplitter(pipe1);
         SimplePipe<String[]> pipe2 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) splitter);
-        String[] frequentWords = getFrequentWords(args[1],NUMBER_OF_WORDS);
+        String[] frequentWords = getFrequentWords(WORD_INPUT_PATH,NUMBER_OF_WORDS);
         CircularShiftFilter circularShiftFilter = new CircularShiftFilter((pmp.interfaces.Readable<String[]>) pipe2, frequentWords);
         SimplePipe<String[]> pipe3 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) circularShiftFilter);
         SortFilter sortFilter = new SortFilter((pmp.interfaces.Readable<String[]>) pipe3);
         SimplePipe<String[]> pipe4 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) sortFilter);
-        Output output = new Output(pipe4, args[2]);
+        Output output = new Output(pipe4, OUTPUT_PATH);
 
         if (input != null) {
             output.run();
@@ -63,4 +62,3 @@ public class PipesAndFilterA {
         return frequentWords.toArray(words);
     }
 }
-
