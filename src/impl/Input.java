@@ -8,6 +8,7 @@ import java.io.*;
 public class Input extends Source<String> {
 
     FileInputStream inputStream;
+    DataInputStream dataInputStream;
     BufferedReader bufferedReader;
     StringBuilder out;
     String line;
@@ -16,7 +17,8 @@ public class Input extends Source<String> {
     public Input(String path) throws FileNotFoundException {
 
         inputStream = new FileInputStream(path);
-        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        dataInputStream = new DataInputStream(inputStream);
+        this.bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         out = new StringBuilder();
         line = new String();
 
@@ -35,7 +37,7 @@ public class Input extends Source<String> {
 
     public String readNextLine() throws IOException {
 
-        if ((line = bufferedReader.readLine()) != null) {
+        if((line = this.bufferedReader.readLine()) != null) {
             return line;
         }
 
@@ -52,26 +54,4 @@ public class Input extends Source<String> {
         }
     }
 
-//    public static void main(String[] args) {
-//
-//
-//        String path = "C:\\Users\\dl_asus\\IdeaProjects\\PmP2017\\PmP2017\\src\\aliceInWonderland.txt";
-//
-//        try {
-//            Input input = new Input(path);
-//            String output;
-//            try {
-//
-//                while((output = input.read())!=null) {
-//                    System.out.println(output.toString());
-//                }
-//
-//            } catch (StreamCorruptedException e) {
-//                e.printStackTrace();
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 }

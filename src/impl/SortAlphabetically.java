@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 
 public class SortAlphabetically extends DataTransformationFilter2<String[], String[]> {
-    private LinkedList<String> lines = new LinkedList<>();
+    private LinkedList<String> allLines = new LinkedList<>();
 
     public SortAlphabetically(Readable<String[]> input) throws InvalidParameterException {
         super(input);
@@ -20,16 +20,22 @@ public class SortAlphabetically extends DataTransformationFilter2<String[], Stri
     }
 
     @Override
-    protected String[] process(String[] newLines) {
-        lines.addAll(Arrays.asList(newLines));
+    protected String[] process(String[] lineArray) {
 
-        for(String line : newLines) {
 
-            if (line.indexOf('\0') >= 0) {
-                lines.sort(String.CASE_INSENSITIVE_ORDER);
-                String[] outputArray = new String[lines.size()];
-                return lines.toArray(outputArray);
+        allLines.addAll(Arrays.asList(lineArray));
+        int i = 0;
+
+        while(lineArray.length > i){
+            if(lineArray[i]== "\0") {
+                allLines.sort(String.CASE_INSENSITIVE_ORDER);
+                String[] outputArray = new String[allLines.size()];
+                i++;
+                return allLines.toArray(outputArray);
+            } else {
+                i++;
             }
+
         }
 
         return null;
