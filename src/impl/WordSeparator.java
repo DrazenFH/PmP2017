@@ -6,14 +6,14 @@ import pmp.interfaces.Writeable;
 
 import java.security.InvalidParameterException;
 
-public class WordSeperator extends DataTransformationFilter2<String, String[]> {
+public class WordSeparator extends DataTransformationFilter2<String, String[]> {
 
 
-    public WordSeperator(Readable<String> input) throws InvalidParameterException {
+    public WordSeparator(Readable<String> input) throws InvalidParameterException {
         super(input);
     }
 
-    public WordSeperator(Writeable<String[]> output) throws InvalidParameterException {
+    public WordSeparator(Writeable<String[]> output) throws InvalidParameterException {
         super(output);
     }
 

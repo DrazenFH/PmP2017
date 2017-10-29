@@ -12,7 +12,7 @@ public class Main {
 
         //Input from File
         //Pipe1
-        //WordSeperator
+        //WordSeparator
         //Pipe2
         //Get FrequentWords
         //CircularShift
@@ -36,8 +36,8 @@ public class Main {
         }
 
         SimplePipe<String> simplePipe1 = new SimplePipe<>(input);
-        WordSeperator wordSeperator = new WordSeperator(simplePipe1);
-        SimplePipe<String[]> simplePipe2 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) wordSeperator);
+        WordSeparator wordSeparator = new WordSeparator(simplePipe1);
+        SimplePipe<String[]> simplePipe2 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) wordSeparator);
         String[] frequentWords = getFrequentWords(pathFromFrequentWords, numberOfWordsToReadFromFrequentWords);
         CircularShift circularShift = new CircularShift((pmp.interfaces.Readable<String[]>) simplePipe2, frequentWords);
         SimplePipe<String[]> simplePipe3 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) circularShift);
@@ -56,19 +56,20 @@ public class Main {
         List<String> frequentWords = new LinkedList<>();
 
         try {
-            FileInputStream fileIS = new FileInputStream(path);
-            DataInputStream dataIS = new DataInputStream(fileIS);
-            BufferedReader bReader = new BufferedReader(new InputStreamReader(dataIS));
-            String wordLine;
+            FileInputStream fis = new FileInputStream(path);
+            DataInputStream dis = new DataInputStream(fis);
+            BufferedReader bReader = new BufferedReader(new InputStreamReader(dis));
+            String line;
             bReader.readLine();
-            int i = 0;
 
-            while(((wordLine = bReader.readLine()) != null) && (i < numberOfWordsToReadFromFrequentWords)) {
-                String word = wordLine.split("\t")[1];
-                frequentWords.add(word);
-                i++;
+            for(int i = 0; i < numberOfWordsToReadFromFrequentWords; i++){
+                if((line = bReader.readLine())!= null){
+                    String word = line.split("\t")[1];
+                    frequentWords.add(word);
+                }
             }
-            dataIS.close();
+
+            dis.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
