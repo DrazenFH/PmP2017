@@ -38,7 +38,8 @@ public class Main {
         SimplePipe<String> simplePipe1 = new SimplePipe<>(input);
         WordSeparator wordSeparator = new WordSeparator(simplePipe1);
         SimplePipe<String[]> simplePipe2 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) wordSeparator);
-        String[] frequentWords = getFrequentWords(pathFromFrequentWords, numberOfWordsToReadFromFrequentWords);
+        FrequentWordProcessor frequentWordProcessor = new FrequentWordProcessor();
+        String[] frequentWords = frequentWordProcessor.getFrequentWords(pathFromFrequentWords, numberOfWordsToReadFromFrequentWords);
         CircularShift circularShift = new CircularShift((pmp.interfaces.Readable<String[]>) simplePipe2, frequentWords);
         SimplePipe<String[]> simplePipe3 = new SimplePipe<>((pmp.interfaces.Readable<String[]>) circularShift);
         SortAlphabetically sortAlphabetically = new SortAlphabetically((pmp.interfaces.Readable<String[]>) simplePipe3);
@@ -51,32 +52,4 @@ public class Main {
             input.closeStream();
         }
     }
-
-    private static String[] getFrequentWords(String path,int numberOfWordsToReadFromFrequentWords){
-        List<String> frequentWords = new LinkedList<>();
-
-        try {
-            FileInputStream fis = new FileInputStream(path);
-            DataInputStream dis = new DataInputStream(fis);
-            BufferedReader bReader = new BufferedReader(new InputStreamReader(dis));
-            String line;
-            bReader.readLine();
-
-            for(int i = 0; i < numberOfWordsToReadFromFrequentWords; i++){
-                if((line = bReader.readLine())!= null){
-                    String word = line.split("\t")[1];
-                    frequentWords.add(word);
-                }
-            }
-
-            dis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        String[] words = new String[frequentWords.size()];
-        return frequentWords.toArray(words);
-    }
-
-
 }
