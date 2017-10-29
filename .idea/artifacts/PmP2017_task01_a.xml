@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PmP2017_task01_a">
+    <output-path>$PROJECT_DIR$/classes/artifacts/PmP2017_task01_a</output-path>
+    <root id="archive" name="PmP2017_task01_a.jar">
+      <element id="module-output" name="PmP2017" />
+    </root>
+  </artifact>
+</component>
