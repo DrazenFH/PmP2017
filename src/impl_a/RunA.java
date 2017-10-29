@@ -6,7 +6,7 @@ import java.io.*;
 
 public class RunA {
 
-    public static void main(String[] args) throws StreamCorruptedException {
+    public static void main(String[] args) throws IOException {
 
         //Input from File
         //Pipe1
@@ -20,10 +20,30 @@ public class RunA {
         //Output to File
         //Close InputStream --> Wichtig!
 
-        String pathFromBook = "src\\aliceInWonderland.txt";
-        String pathFromFrequentWords = "src\\frequentEnglishWords.txt";
+
+        String pathBook;
+        BufferedReader readerBook = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter your path for the book: ");
+        pathBook = readerBook.readLine();
+        String pathFromBook = pathBook;
+
+
+        String pathFrequentWords;
+        BufferedReader readerFrequentWord = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter your path for a frequent words file: ");
+        pathFrequentWords = readerFrequentWord.readLine();
+        String pathFromFrequentWords = pathFrequentWords;
+
+        String pathOutput;
+        BufferedReader readerOutput = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter your path for the output file: ");
+        pathOutput = readerOutput.readLine();
+        String pathToOutput = pathOutput;
+
+
+
+
         int numberOfWordsToReadFromFrequentWords = 100;
-        String pathToOutput = "src\\output.txt";
 
         Input input = null;
         try {
