@@ -1,4 +1,4 @@
-package impl1;
+package impl_b;
 
 import pmp.filter.DataTransformationFilter2;
 import pmp.interfaces.Readable;
@@ -6,18 +6,18 @@ import pmp.interfaces.Writeable;
 
 import java.security.InvalidParameterException;
 
-public class LineCreater extends DataTransformationFilter2<String, String> {
+public class LineCreator extends DataTransformationFilter2<String, String> {
     private int _lineLength;
     private StringBuilder _line;
     private LineAlignment _alignment;
 
-    LineCreater(Readable<String> input, int lineLength, LineAlignment alignment) throws InvalidParameterException {
+    LineCreator(Readable<String> input, int lineLength, LineAlignment alignment) throws InvalidParameterException {
         super(input);
         _lineLength = lineLength;
         _alignment = alignment;
     }
 
-    LineCreater(Writeable<String> output, int lineLength, LineAlignment alignment) throws InvalidParameterException {
+    LineCreator(Writeable<String> output, int lineLength, LineAlignment alignment) throws InvalidParameterException {
         super(output);
         _lineLength = lineLength;
         _alignment = alignment;

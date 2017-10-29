@@ -1,4 +1,4 @@
-package impl1;
+package impl_b;
 
 import pmp.filter.Sink;
 import pmp.interfaces.Readable;

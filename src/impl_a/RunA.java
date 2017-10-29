@@ -1,12 +1,10 @@
-package impl;
+package impl_a;
 
 import pmp.pipes.SimplePipe;
 
 import java.io.*;
-import java.util.LinkedList;
-import java.util.List;
 
-public class Main {
+public class RunA {
 
     public static void main(String[] args) throws StreamCorruptedException {
 

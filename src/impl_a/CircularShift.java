@@ -1,6 +1,5 @@
-package impl;
+package impl_a;
 
-import pmp.filter.DataTransformationFilter1;
 import pmp.filter.DataTransformationFilter2;
 import pmp.interfaces.Readable;
 import pmp.interfaces.Writeable;
@@ -28,29 +27,28 @@ public class CircularShift extends DataTransformationFilter2<String[], String[]>
     }
 
     @Override
-    protected String[] process(String[] words) {
+    protected String[] process(String[] lineOfWords) {
         countLine++;
 
-        if(words.length > 0 && words[0].equals("\0")){
-            return words;
+        if(lineOfWords.length > 0 && lineOfWords[0].equals("\0")){
+            return lineOfWords;
         }
 
-        if(String.join("", words).trim().length() <= 0) {
+        if(String.join(" ", lineOfWords).trim().length() <= 0) {
             return new String[0];
         }
 
         List<String> outputStrings = new LinkedList<>();
         int i = 0;
-        while ( i < words.length){
+        while ( i < lineOfWords.length){
 
-            if(!Arrays.asList(_frequentWords).contains(words[0].toLowerCase())) {
-                String line = String.join(" ", words) + " : " + countLine;
+            if(!Arrays.asList(_frequentWords).contains(lineOfWords[0].toLowerCase())) {
+                String line = String.join(" ", lineOfWords) + " : " + countLine;
                 outputStrings.add(line);
             }
 
-            String firstWord = words[0];
-            System.arraycopy(words, 1, words, 0, words.length - 1);
-            words[words.length - 1] = firstWord;
+            String firstWordOfLine = lineOfWords[0];
+            shift(firstWordOfLine, lineOfWords);
 
             i++;
         }
@@ -65,5 +63,11 @@ public class CircularShift extends DataTransformationFilter2<String[], String[]>
         for(int index = 0; index < _frequentWords.length; index++) {
             this._frequentWords[index] = _frequentWords[index].toLowerCase();
         }
+    }
+
+    private void shift(String firstWordOfLine, String[] line){
+        System.arraycopy(line, 1, line, 0, line.length - 1);
+        line[line.length - 1] = firstWordOfLine;
+
     }
 }

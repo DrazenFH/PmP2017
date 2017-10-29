@@ -1,4 +1,4 @@
-package impl1;
+package impl_b;
 
 import pmp.filter.Source;
 import pmp.interfaces.Writeable;
@@ -39,7 +39,7 @@ public class CharacterInput extends Source<Character> {
         try {
             do {
                 if (m_Output == null)
-                    throw new StreamCorruptedException("output filter is null");
+                    throw new StreamCorruptedException("null");
 
                 out = read();
                 m_Output.write(out);

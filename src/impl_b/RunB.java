@@ -1,11 +1,11 @@
-package impl1;
+package impl_b;
 
-import impl.*;
+import impl_a.*;
 import pmp.pipes.SimplePipe;
 
 import java.io.FileNotFoundException;
 
-public class Main1 {
+public class RunB {
 
     public static void main(String[] args) {
         String pathFromBook = "src\\aliceInWonderland.txt";
@@ -43,8 +43,8 @@ public class Main1 {
 
         DoublePushPipe doublePushPipe3 = new DoublePushPipe<>(wordSeparator, output2);
 
-        LineCreater lineCreater = new LineCreater((pmp.interfaces.Writeable<String>) doublePushPipe3, lineLength, desiredLineAlignment);
-        SimplePipe<String> simplePipe2 = new SimplePipe<>((pmp.interfaces.Writeable<String>) lineCreater);
+        LineCreator lineCreator = new LineCreator((pmp.interfaces.Writeable<String>) doublePushPipe3, lineLength, desiredLineAlignment);
+        SimplePipe<String> simplePipe2 = new SimplePipe<>((pmp.interfaces.Writeable<String>) lineCreator);
         WordCreator wordCreator = new WordCreator(simplePipe2);
         SimplePipe<Character> simplePipe1 = new SimplePipe<>((pmp.interfaces.Writeable<Character>) wordCreator);
 

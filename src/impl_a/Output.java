@@ -1,4 +1,4 @@
-package OktayJulian.ImplementationA;
+package impl_a;
 
 import pmp.filter.Sink;
 import pmp.interfaces.Readable;
@@ -7,6 +7,7 @@ import java.io.*;
 import java.security.InvalidParameterException;
 
 public class Output extends Sink<String[]> {
+
     private Readable<String[]> input;
     private BufferedWriter buffer;
 

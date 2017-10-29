@@ -1,4 +1,4 @@
-package impl1;
+package impl_b;
 
 import pmp.interfaces.IOable;
 import pmp.interfaces.Writeable;
