@@ -13,8 +13,8 @@ public class Main1 {
         String pathToOutput1 = "src\\output1.txt";
         String pathToOutput2 = "src\\output2.txt";
         int numberOfWordsToReadFromFrequentWords = 100;
-        int lineLength = 80;
-        LineAlignment desiredLineAlignment = LineAlignment.RIGHT;
+        int lineLength = 40;
+        LineAlignment desiredLineAlignment = LineAlignment.LEFT;
 
         //Output1 erstellen
         //Output2 erstellen --> LineOutput
@@ -40,7 +40,9 @@ public class Main1 {
         CircularShift circularShift = new CircularShift((pmp.interfaces.Writeable<String[]>) simplePipe5, frequentWordProcessor.getFrequentWords(pathFromFrequentWords, numberOfWordsToReadFromFrequentWords));
         SimplePipe<String[]> simplePipe4 = new SimplePipe<>((pmp.interfaces.Writeable<String[]>) circularShift);
         WordSeparator wordSeparator = new WordSeparator(simplePipe4);
+
         DoublePushPipe doublePushPipe3 = new DoublePushPipe<>(wordSeparator, output2);
+
         LineCreater lineCreater = new LineCreater((pmp.interfaces.Writeable<String>) doublePushPipe3, lineLength, desiredLineAlignment);
         SimplePipe<String> simplePipe2 = new SimplePipe<>((pmp.interfaces.Writeable<String>) lineCreater);
         WordCreator wordCreator = new WordCreator(simplePipe2);
@@ -48,7 +50,7 @@ public class Main1 {
 
         CharacterInput input = null;
         try {
-            input = new Input(simplePipe1, pathFromBook);
+            input = new CharacterInput(simplePipe1, pathFromBook);
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
